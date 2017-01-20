@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Latest compiled and minified CSS -->
-<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- -->  <!-- Optional theme -->
-<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->  
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,24 +18,26 @@
   <div class="row">
     <div class="col-lg-3 col-lg-offset-4">
       <div>
-        <?php
-          //checking if the four inputs are set
-          if (isset($_POST['enrollment_id'])   &&
-              isset($_POST['student_id']))   
-          {
-            $enrollment_id   = get_post($conn, 'enrollment_id');
-            $student_id    = get_post($conn, 'student_id');
-          }
-        ?> 
-        <form action="index.php" method="post">
+        <form action="home.php" method="post">
           <ul style="list-style: none;">
-            <li>First Name <input type="text" name="enrollment_id"></li>
-            <li>Last Name <input type="text" name="student_id"></li>
+            <li>First Name <input type="text" name="first_name"></li>
+            <li>Last Name <input type="text" name="last_name"></li>
             <li>Delete <input type="text" name="course_id"></li>
             <input type="hidden" name="update">
             <li><input onclick="index.php" type="submit"></li>
           </ul>
         </form>
+        <div class="col-lg-3 col-lg-offset-4">
+          <?php
+            //checking if the four inputs are set
+            if (isset($_POST['first_name'])   &&
+                isset($_POST['last_name']))   
+            {
+              echo $_POST["first_name"]; 
+              echo $_POST["last_name"];
+            }
+          ?> 
+        </div>
       </div>
     </div>
   </div>
